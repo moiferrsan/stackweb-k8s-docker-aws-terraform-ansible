@@ -1,7 +1,7 @@
 // Cria�ã�o do node Master do k8s
 resource "aws_instance" "server-master" {
   ami           = "ami-0bf9ef4c7f3e35044"
-  instance_type = "t3a.medium"
+  instance_type = "t3a.small"
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
   security_groups = [
                      "${aws_security_group.allow_ssh.id}",
@@ -20,7 +20,7 @@ resource "aws_instance" "server-master" {
 //Criaçãddo node1 do k8s
 resource "aws_instance" "server-node1" {
   ami           = "ami-0bf9ef4c7f3e35044"
-  instance_type = "t3a.medium"
+  instance_type = "t3a.small"
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
   security_groups = [
                      "${aws_security_group.allow_ssh.id}",
@@ -40,7 +40,7 @@ resource "aws_instance" "server-node1" {
 //Criaçãddo node2 do k8s
 resource "aws_instance" "server-node2" {
   ami           = "ami-0bf9ef4c7f3e35044"
-  instance_type = "t3a.medium"
+  instance_type = "t3a.small"
   availability_zone = "${data.aws_availability_zones.available.names[1]}"
   security_groups = [
                      "${aws_security_group.allow_ssh.id}",

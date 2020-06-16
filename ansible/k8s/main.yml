@@ -1,0 +1,25 @@
+- hosts: all
+  become: yes
+  user: admin
+  gather_facts: no
+  pre_tasks:
+  - name: 'atualizando repo'
+    raw: 'apt-get update'
+  - name: 'atualizando o S.O'
+    raw: 'apt-get upgrade -y'          
+  - name: 'instalando o python'
+    raw: 'apt-get install -y python'
+  roles:
+  - { role: install-k8s, tags: ["install_k8s_role"]}
+
+- hosts: k8s-master
+  become: yes
+  user: admin
+  roles:
+  - { role: create-cluster, tags: ["create_cluster_role"]}
+
+- hosts: k8s-workers
+  become: yes
+  user: admin
+  roles:
+  - { role: join-workers, tags: ["join_workers_role"]}
