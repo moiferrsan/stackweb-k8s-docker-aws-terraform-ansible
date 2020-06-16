@@ -23,3 +23,9 @@
   user: admin
   roles:
   - { role: join-workers, tags: ["join_workers_role"]}
+
+- hosts: k8s-master
+  become: yes
+  user: admin
+  roles:
+  - { role: deploy-app, tags: ["deploy_app_role"]}

@@ -57,3 +57,27 @@ resource "aws_instance" "server-node2" {
     SO     = "Debian Stretch"
   }
 }
+
+//Mostrar o ip p√blico do node master
+output "ip_publico_master" {
+  value = "${aws_instance.server-master.public_ip}"
+
+}
+
+//Mostrar o ip p√blico do node1
+output "ip_publico_node1" {
+  value = "${aws_instance.server-node1.public_ip}"
+
+}
+
+//Mostrar o ip p√blico do node2
+output "ip_publico_node2" {
+  value = "${aws_instance.server-node2.public_ip}"
+
+}
+
+//Mostrar o ip privado do node master
+output "ip_privado_master" {
+  value = "${aws_instance.server-master.private_ip}"
+
+}

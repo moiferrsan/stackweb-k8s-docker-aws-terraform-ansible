@@ -35,11 +35,23 @@ resource "aws_lb_listener" "lbl-web" {
   }
 }
 
-//vinculação do target group a instancik8s Master
-resource "aws_lb_target_group_attachment" "k8s" {
+//vinculação do target group a instana k8s Master
+resource "aws_lb_target_group_attachment" "master" {
   target_group_arn = "${aws_lb_target_group.tg-web.arn}"
   target_id        = "${aws_instance.server-master.id}"
-  port             = 80
+  port             = 30000
+}
+//vinculação do target group a instana k8s node1
+resource "aws_lb_target_group_attachment" "node1" {
+  target_group_arn = "${aws_lb_target_group.tg-web.arn}"
+  target_id        = "${aws_instance.server-node1.id}"
+  port             = 30000
+}
+//vinculação do target group a instana k8s node2
+resource "aws_lb_target_group_attachment" "node2" {
+  target_group_arn = "${aws_lb_target_group.tg-web.arn}"
+  target_id        = "${aws_instance.server-node2.id}"
+  port             = 30000
 }
 //Mostrar o dns do ALB
 output "dns_alb" {

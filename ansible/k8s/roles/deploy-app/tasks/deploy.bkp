@@ -1,0 +1,20 @@
+- name: dir
+  file: path={{item}} state=directory
+  with_items:
+    - /opt/corp
+
+#- name: Copiando os yml para o servidor
+#  copy: src={{ item.src }} dest={{ item.dest }}
+#  with_items:
+#    - { src: 'deployment.yaml', dest: '/opt/corp/deployment.yaml' }
+#    - { src: 'ingress.yaml', dest: '/opt/corp/ingress.yaml' }
+#    - { src: 'ingress-rules.yaml', dest: '/opt/corp/ingress-rules.yaml' }
+
+#- name: Criando os Deployments e Services da aplic√o
+#  shell: kubectl create -f /opt/corp/deployment.yaml
+
+#- name: Criando o recurso Nginx Ingress
+#  shell: kubectl create -f /opt/corp/ingress.yaml
+
+#- name: Criando os ingress para a aplic√£o
+#  shell: kubectl create -f /opt/corp/ingress-rules.yaml
