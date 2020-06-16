@@ -1,3 +1,4 @@
+main.retry
 .terraform
 # Local .terraform directories
 **/.terraform/*
