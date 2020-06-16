@@ -1,11 +1,10 @@
 [k8s-master]
-34.228.113.204
+ip_publico_master
 
 [k8s-workers]
-34.230.18.48
-54.204.136.17
+ip_publico_node1
+ip_publico_node2
 [k8s-workers:vars]
-K8S_MASTER_NODE_IP=172.17.2.67
+K8S_MASTER_NODE_IP=ip_privado_master
 K8S_API_SECURE_PORT=6443
-
 
