@@ -4,7 +4,7 @@ metadata:
   name: webapp-ingress
 spec:
   rules:
-  - host: alb-web-590920137.us-east-1.elb.amazonaws.com
+  - host: dns_alb
     http:
       paths:
       - path: /webapp1
