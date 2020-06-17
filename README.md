@@ -118,8 +118,8 @@ Testar as rotas da aplicação via CURL
 ```
 $ apt-get install curl -y
 $ cd ../../terraform/
-$ curl $(terraform output dns_alb)
-$ curl $(terraform output dns_alb)/backend
+$ curl $(terraform output dns_alb)/
+$ curl $(terraform output dns_alb)/backend/
 ``` 
 Ou no seu navegador de internet
 
