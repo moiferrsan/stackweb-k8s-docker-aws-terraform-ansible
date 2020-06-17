@@ -7,7 +7,6 @@ spec:
   - host: dns_alb
     http:
       paths:
-      - path: /frontend
         backend:
           serviceName: frontend-svc
           servicePort: 80

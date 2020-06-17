@@ -111,7 +111,7 @@ Testar a aplicação via CURL
 ```
 $ apt-get install curl -y
 $ cd ../../terraform/
-$ curl $(terraform output dns_alb)/frontend
+$ curl $(terraform output dns_alb)
 $ curl $(terraform output dns_alb)/backend
 ``` 
 Ou no seu navegador de internet
