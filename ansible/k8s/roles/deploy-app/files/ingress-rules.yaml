@@ -7,14 +7,11 @@ spec:
   - host: dns_alb
     http:
       paths:
-      - path: /webapp1
+      - path: /frontend
         backend:
-          serviceName: webapp1-svc
+          serviceName: frontend-svc
           servicePort: 80
-      - path: /webapp2
+      - path: /backend
         backend:
-          serviceName: webapp2-svc
-          servicePort: 80
-      - backend:
-          serviceName: webapp3-svc
+          serviceName: backend-svc
           servicePort: 80
