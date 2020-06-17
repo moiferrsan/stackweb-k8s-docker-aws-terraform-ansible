@@ -2,7 +2,7 @@
 
 echo "Navegar até a pasta do Terraform"
 echo "#######################################################"
-cd stackweb-k8s-docker-aws-terraform-ansible/terraform/
+cd terraform/
 
 echo "Inicializar o Terraform com os recursos da AWS Provider"
 echo "#######################################################"
