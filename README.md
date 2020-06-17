@@ -1,15 +1,15 @@
-# stackweb-k8s-docker-aws-terraform-ansible
+# Criação de Stack de infraestrutura com AWS, K8S, Terraform e Ansible  
 Este projeto cria uma stack de infraestrutura que provisiona um ambiente para rodar uma aplicação backend rest hipotética, com duas réplicas respondendo em um Load Balancer, e uma aplicação frontend estática, ambas respondendo pelo mesmo DNS, porém com contextos (paths)distintos.  Isso, utilizando-se das tecnologias: Docker, k8s, AWS, Ansible e Terraform
 
-Na AWS, criaremos uma arquitetura que inclui uma VPC completa com subnets privadas e públicas, assim como as rotas padrões para acesso a internet por ambas as subnets através de IGW e NAT. Inclue tambétr�s EC2's onde instalaremos um cluster Kubernetes e ele será acessado via ALB para o balanceamento de carga entre esses equipamentos. Para isso, utilizaremos o Terraform como ferramenta para definirmos nossa infraestrutura como c�digo.
+Na AWS, criaremos uma arquitetura que inclui uma VPC completa com subnets privadas e públicas, assim como as rotas padrões para acesso a internet por ambas as subnets através de IGW e NAT. Inclui também três EC2's onde instalaremos um cluster Kubernetes e ele será acessado via ALB para o balanceamento de carga entre esses equipamentos. Para isso, utilizaremos o Terraform como ferramenta para definirmos nossa infraestrutura como código.
 
-Depois disso, utilizaremos o Ansible para realizarmos a instala��o do Cluster K8's de tr�s n�s e efetuaremos o deploy de uma aplica��o backend rest hipotética, com duas réplicas respondendem um Load Balancer, e uma aplicação frontend estática, ambas respondendo pelo mesmo DNS, porém com contexto(paths)distintos.
+Depois disso, utilizaremos o Ansible para realizarmos a instalação do Cluster K8's de três nós e efetuaremos o deploy das aplicações e elas irão responder em um Load Balancer.
 
-**O diagrama abaixo � �uma ilustra��o do que iremos construir:**
+**O diagrama abaixo mostra uma ilustração do que iremos construir:**
 
 ## Requisitos para criação do ambiente ##
 
-* Ter uma conta e um usuário com acesso programatico na AWS, caso não tenha, criar conform documentação da cloud provider:
+* Ter uma conta e um usuário com acesso programático na AWS, caso não tenha, criar conform documentação da cloud provider:
 https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html
 
 * Ter ou criar um par de chaves ssh, como no comando abaixo:
@@ -55,7 +55,7 @@ Opcional:
 ```
 $vim /etc/ansible/ansible.cfg
 ```
-Adicione o parâmetro abaixo para que o ansible não check a chave ssh:
+Adicione o parÃ¢metro abaixo para que o ansible não check a chave ssh:
 host_key_checking = False
 
 
@@ -84,7 +84,7 @@ $ sed -i "s/ip_publico_node2/$(terraform output ip_publico_node2)/g" ../ansible/
 $ sed -i "s/ip_privado_master/$(terraform output ip_privado_master)/g" ../ansible/k8s/hosts
 $ sed -i "s/dns_alb/$(terraform output dns_alb)/g" ../ansible/k8s/roles/deploy-app/files/ingress-rules.yaml
 ```
-Navegar até a pasta do playbook
+Navegar até pasta do playbook
 
 ```
 $ cd ../ansible/k8s/
@@ -110,15 +110,15 @@ $ terraform destroy -auto-approve
 
 ## Roadmap de melhorias ##
  
-* Implantar o Web Application Firewall da AWS (WAF) para proteger a aplicação de exploits comuns na Web.
+* Implantar o Web Application Firewall da AWS (WAF) para proteger a aplicaÃ§Ã£o de exploits comuns na Web.
 
-* Implantar MultiMaster no Cluster k8s para garantir maior disponibilidade e resiliência do Cluster.
+* Implantar MultiMaster no Cluster k8s para garantir maior disponibilidade e resiliÃªncia do Cluster.
 
 * Criar um Host Bastian e integrar com o IAM para limitar o acesso SSH nas EC2's
 
 * Implantar o Monitoramento do k8s utilizando o CloudWatch e outras ferramentas terceiras como o Prometheus.
 
-* Cria uma rotina de backup das instâncias e do ETCD com Lambda.
+* Cria uma rotina de backup das instÃ¢ncias e do ETCD com Lambda.
 
 * Gravar o arquivo de estado do terraform em um bucket s3 para termos uma redundância do nosso versionamento da infraestrutura.
 
@@ -128,9 +128,11 @@ $ terraform destroy -auto-approve
 
 * Implantar https para melhorar a segurança do ambiente.
 
-* Limitar o acesso SSH atráves de regras nos Security Groups, permitindo apenas redes conhecidas.
+* Limitar o acesso SSH através de regras nos Security Groups, permitindo apenas redes conhecidas.
 
 * Criar Helm Charts para deployar a aplicação
 
 * Avaliar a utilização do serviço gerenciado de Kubernetes da AWS (EKS)
+
+
 
