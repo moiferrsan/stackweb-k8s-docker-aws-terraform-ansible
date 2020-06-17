@@ -71,7 +71,7 @@ Primeiro baixamos o fonte do repositório
 ```
 git clone https://github.com/moiferrsan/stackweb-k8s-docker-aws-terraform-ansible.git
 ```
-Navegue até a pasta do projeto e execute o script de instalação
+Navegue até a pasta do projeto e execute o script de criação do ambiente
 
 ```
 $ cd stackweb-k8s-docker-aws-terraform-ansible
