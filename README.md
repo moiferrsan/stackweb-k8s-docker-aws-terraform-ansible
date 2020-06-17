@@ -7,6 +7,8 @@ Depois disso, utilizaremos o Ansible para realizarmos a instalação do Cluster 
 
 **O diagrama abaixo mostra uma ilustração do que iremos construir:**
 
+| ![Arquitetura Kubernetes](AWS-Corp.jpg) |
+
 ## Requisitos para criação do ambiente ##
 
 * Ter uma conta e um usuário com acesso programático na AWS, caso não tenha, criar conform documentação da cloud provider:
