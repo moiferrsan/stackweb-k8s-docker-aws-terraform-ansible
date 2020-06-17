@@ -16,7 +16,7 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html
 
 * Ter ou criar um par de chaves ssh, como no comando abaixo:
 ```
-$ ssh-keygen -t rsa
+$ apt-get update && apt-get install openssh-server -y && ssh-keygen -t rsa
 ```
 
 * Exportar credenciais do seu usuário da aws como variáveis de ambiente:
@@ -32,11 +32,12 @@ https://www.terraform.io/docs/providers/aws/index.html
 
 * Instalar o Ansible
 
-Instalar o Git
+* Instalar o Git
 
 ## Instalação do Terraform no Debian ##
 
 ```
+$ apt-get install wget unzip -y
 $ wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
 $ unzip terraform_0.12.26_linux_amd64.zip
 $ chmod +x terraform
@@ -49,18 +50,18 @@ Para outros Sistemas Operacionais, consulte: https://learn.hashicorp.com/terrafo
 ## Instalação Ansible no Debian ##
 
 ```
+$ apt-get install sudo -y
 $ echo deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main >> /etc/apt/sources.list
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 $ sudo apt update
-$ sudo apt install ansible
+$ sudo apt install ansible -y
 ```
-Opcional:
+Opcional: Adicione o parâmetro: host_key_checking como False no arquivo de configuração do Ansible para que as chaves SSH não sejam validadas:
+```
+$ apt-get install vim -y
+$ sed -i 's/#host_key_checking = False/host_key_checking = False/' /etc/ansible/ansible.cfg
+```
 
-```
-$vim /etc/ansible/ansible.cfg
-```
-Adicione o parÃ¢metro abaixo para que o ansible não check a chave ssh:
-host_key_checking = False
 ## Instalação do Git ##
 ```
 sudo apt-get install git -y
@@ -108,6 +109,7 @@ $ ansible-playbook -i hosts main.yml
 Testar a aplicação via CURL
 
 ```
+$ apt-get install curl -y
 $ cd ../../terraform/
 $ curl $(terraform output dns_alb)/webapp1
 $ curl $(terraform output dns_alb)/webapp2
@@ -144,6 +146,7 @@ $ terraform destroy -auto-approve
 * Criar Helm Charts para deployar a aplicação
 
 * Avaliar a utilização do serviço gerenciado de Kubernetes da AWS (EKS)
+
 
 
 
