@@ -77,7 +77,7 @@ Navegue até a pasta do projeto e execute o script de instalação
 $ cd stackweb-k8s-docker-aws-terraform-ansible
 $ ./setup.sh
 ```
-**Caso queria fazer a instalação de forma manual, siga os passos abaixo:**
+### Caso queria fazer a instalação de forma manual, siga os passos abaixo: ###
 
 Navegue até a pasta do Terraform
 ```
@@ -123,7 +123,7 @@ $ curl $(terraform output dns_alb)/backend
 ``` 
 Ou no seu navegador de internet
 
-**Não se esqueça de destruir os recursos criados, caso eles nÃo sejam mais necessários**
+### Não se esqueça de destruir os recursos criados, caso eles nÃo sejam mais necessários ###
 ```
 $ terraform destroy -auto-approve
 ```  
