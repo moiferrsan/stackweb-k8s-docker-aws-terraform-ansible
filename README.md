@@ -30,6 +30,8 @@ https://www.terraform.io/docs/providers/aws/index.html
 
 * Instalar o Ansible
 
+* Instalar o Git
+
 ## Instalação do Terraform no Debian ##
 
 ```
@@ -58,6 +60,11 @@ $vim /etc/ansible/ansible.cfg
 Adicione o parÃ¢metro abaixo para que o ansible não check a chave ssh:
 host_key_checking = False
 
+## Instala��o do Git
+
+```
+sudo apt-get install git -y
+```
 
 ## Criando a infraestrutura na AWS ##
 
