@@ -123,7 +123,7 @@ $ curl $(terraform output dns_alb)/backend
 ``` 
 Ou no seu navegador de internet
 
-### Não se esqueça de destruir os recursos criados, caso eles nÃo sejam mais necessários ###
+### Não se esqueça de destruir os recursos criados, caso eles não sejam mais necessários ###
 ```
 $ terraform destroy -auto-approve
 ```  
