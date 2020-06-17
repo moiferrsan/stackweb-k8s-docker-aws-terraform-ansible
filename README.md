@@ -58,7 +58,6 @@ $ sudo apt install ansible -y
 ```
 Opcional: Adicione o par√¢metro: host_key_checking como False no arquivo de configura√ß√£o do Ansible para que as chaves SSH n√£o sejam validadas:
 ```
-$ apt-get install vim -y
 $ sed -i 's/#host_key_checking = False/host_key_checking = False/' /etc/ansible/ansible.cfg
 ```
 
@@ -72,9 +71,17 @@ Primeiro baixamos o fonte do reposit√≥rio
 ```
 git clone https://github.com/moiferrsan/stackweb-k8s-docker-aws-terraform-ansible.git
 ```
+Navegue at√©a pasta do projeto e execute o script de instala√√o
+
+```
+$ cd stackweb-k8s-docker-aws-terraform-ansible
+$ ./setup.sh
+```
+** Caso queria fazer a instala√√o de forma manual, siga os passos abaixo: **
+
 Navegar at√© a pasta do Terraform
 ```
-$ cd stackweb-k8s-docker-aws-terraform-ansible/terraform/
+$ cd terraform/
 ```
 Inicializar o Terraform com os recursos da AWS Provider
 ```
@@ -116,7 +123,7 @@ $ curl $(terraform output dns_alb)/backend
 ``` 
 Ou no seu navegador de internet
 
-Destruir os recursos criados
+** N√o se esqueca de destruir os recursos criados, caso eles n√o sejam mais necess√rios **
 ```
 $ terraform destroy -auto-approve
 ```  
