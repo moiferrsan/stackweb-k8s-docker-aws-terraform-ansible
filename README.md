@@ -59,10 +59,17 @@ Adicione o parÃ¢metro abaixo para que o ansible não check a chave ssh:
 host_key_checking = False
 
 
-## Criando a infraestrutura na AWS##
+## Criando a infraestrutura na AWS ##
+
+Primeiro baixamos o fonte do reposit�rio
 
 ```
-$ cd terraform
+git clone https://github.com/moiferrsan/stackweb-k8s-docker-aws-terraform-ansible.git
+```
+Navegar até a pasta do terraform
+
+```
+$ cd stackweb-k8s-docker-aws-terraform-ansible/terraform/
 ```
 Inicializar o Terraform com os recursos da AWS Provider
 ```
