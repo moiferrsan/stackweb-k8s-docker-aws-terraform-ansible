@@ -30,7 +30,7 @@ https://www.terraform.io/docs/providers/aws/index.html
 
 * Instalar o Ansible
 
-* Instalar o Git
+Instalar o Git
 
 ## Instalação do Terraform no Debian ##
 
@@ -59,22 +59,17 @@ $vim /etc/ansible/ansible.cfg
 ```
 Adicione o parÃ¢metro abaixo para que o ansible não check a chave ssh:
 host_key_checking = False
-
-## Instala��o do Git
-
+## Instalação do Git ##
 ```
 sudo apt-get install git -y
 ```
-
 ## Criando a infraestrutura na AWS ##
 
-Primeiro baixamos o fonte do reposit�rio
-
+Primeiro baixamos o fonte do repositório
 ```
 git clone https://github.com/moiferrsan/stackweb-k8s-docker-aws-terraform-ansible.git
 ```
-Navegar até a pasta do terraform
-
+Navegar até a pasta do Terraform
 ```
 $ cd stackweb-k8s-docker-aws-terraform-ansible/terraform/
 ```
