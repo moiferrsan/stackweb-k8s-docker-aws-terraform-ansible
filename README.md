@@ -1,5 +1,5 @@
 # Criação de Stack de infraestrutura com AWS, K8S, Terraform e Ansible  
-Este projeto cria uma stack de infraestrutura que provisiona um ambiente para rodar uma aplicação backend rest hipotética, com duas réplicas respondendo em um Load Balancer, e uma aplicação frontend estática, ambas respondendo pelo mesmo DNS, porém com contextos (paths)distintos.  Isso, utilizando-se das tecnologias: Docker, k8s, AWS, Ansible e Terraform
+Este projeto cria uma stack de infraestrutura que provisiona um ambiente para rodar uma aplicação backend rest hipotética, com duas réplicas respondendo em um Load Balancer, e uma aplicação frontend estática, ambas respondendo pelo mesmo DNS, porém com contextos (paths)distintos.  Isso, utilizando-se das tecnologias: Docker, k8s, AWS, Ansible e Terraform.
 
 Na AWS, criaremos uma arquitetura que inclui uma VPC completa com subnets privadas e públicas, assim como as rotas padrões para acesso a internet por ambas as subnets através de IGW e NAT. Inclui também três EC2's onde instalaremos um cluster Kubernetes e ele será acessado via ALB para o balanceamento de carga entre esses equipamentos. Para isso, utilizaremos o Terraform como ferramenta para definirmos nossa infraestrutura como código.
 
@@ -11,7 +11,7 @@ Depois disso, utilizaremos o Ansible para realizarmos a instalação do Cluster 
 
 ## Requisitos para criação do ambiente ##
 
-* Ter uma conta e um usuário com acesso programático na AWS, caso não tenha, criar conform documentação da cloud provider:
+* Ter uma conta e um usuário com acesso programático na AWS, caso não tenha, criar conforme documentação da cloud provider:
 https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html
 
 * Ter ou criar um par de chaves ssh, como no comando abaixo:
@@ -25,7 +25,7 @@ $ apt-get update && apt-get install openssh-server -y && ssh-keygen -t rsa
 $ export AWS_ACCESS_KEY_ID=$SUAKEY
 $ export AWS_SECRET_ACCESS_KEY=$SUASECRETKEY
 ```
-ou utilize os outros métodos de autenticação, conforme a documentação:
+ou utilize os outros métodos de autenticação, conforme a documentação do Terraform:
 https://www.terraform.io/docs/providers/aws/index.html
 
 * Instalar o Terraform
@@ -71,15 +71,15 @@ Primeiro baixamos o fonte do repositório
 ```
 git clone https://github.com/moiferrsan/stackweb-k8s-docker-aws-terraform-ansible.git
 ```
-Navegue atéa pasta do projeto e execute o script de instala��o
+Navegue até a pasta do projeto e execute o script de instalação
 
 ```
 $ cd stackweb-k8s-docker-aws-terraform-ansible
 $ ./setup.sh
 ```
-** Caso queria fazer a instala��o de forma manual, siga os passos abaixo: **
+**Caso queria fazer a instalação de forma manual, siga os passos abaixo:**
 
-Navegar até a pasta do Terraform
+Navegue até a pasta do Terraform
 ```
 $ cd terraform/
 ```
@@ -113,7 +113,7 @@ Executar o playbook para instalação do K8S e deploy da aplicação
 ```
 $ ansible-playbook -i hosts main.yml
 ```
-Testar a aplicação via CURL
+Testar as rotas da aplicação via CURL
 
 ```
 $ apt-get install curl -y
@@ -123,22 +123,22 @@ $ curl $(terraform output dns_alb)/backend
 ``` 
 Ou no seu navegador de internet
 
-** N�o se esqueca de destruir os recursos criados, caso eles n�o sejam mais necess�rios **
+**Não se esqueça de destruir os recursos criados, caso eles nÃo sejam mais necessários**
 ```
 $ terraform destroy -auto-approve
 ```  
 
 ## Roadmap de melhorias ##
  
-* Implantar o Web Application Firewall da AWS (WAF) para proteger a aplicaÃ§Ã£o de exploits comuns na Web.
+* Implantar o Web Application Firewall da AWS (WAF) para proteger a aplicação de exploits comuns na Web.
 
-* Implantar MultiMaster no Cluster k8s para garantir maior disponibilidade e resiliÃªncia do Cluster.
+* Implantar MultiMaster no Cluster k8s para garantir maior disponibilidade e resiliência do Cluster.
 
 * Criar um Host Bastian e integrar com o IAM para limitar o acesso SSH nas EC2's
 
 * Implantar o Monitoramento do k8s utilizando o CloudWatch e outras ferramentas terceiras como o Prometheus.
 
-* Cria uma rotina de backup das instÃ¢ncias e do ETCD com Lambda.
+* Cria uma rotina de backup das instâncias e do ETCD com Lambda.
 
 * Gravar o arquivo de estado do terraform em um bucket s3 para termos uma redundância do nosso versionamento da infraestrutura.
 
@@ -152,8 +152,5 @@ $ terraform destroy -auto-approve
 
 * Criar Helm Charts para deployar a aplicação
 
-* Avaliar a utilização do serviço gerenciado de Kubernetes da AWS (EKS)
-
-
-
+* Avaliar a utilizá lização do serviço gerenciado de Kubernetes da AWS (EKS)
 
